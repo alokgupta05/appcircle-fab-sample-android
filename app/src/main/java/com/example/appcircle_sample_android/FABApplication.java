@@ -52,7 +52,7 @@ public class FABApplication extends MultiDexApplication{
         // Cache the FlutterEngine to be used by FlutterActivity.
         FlutterEngineCache
                 .getInstance()
-                .put("my_engine_id", flutterEngine);
+                .put("fab_engine_id", flutterEngine);
     }
 
 }

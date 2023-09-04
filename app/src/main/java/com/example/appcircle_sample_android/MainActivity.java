@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         addFabButton.setOnClickListener(view -> {
             startActivity(
                     FlutterActivity
-                            .withCachedEngine("my_engine_id")
+                            .withCachedEngine("fab_engine_id")
                             .build(MainActivity.this)
             );
         });
