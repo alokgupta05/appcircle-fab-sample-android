@@ -3,8 +3,11 @@
 buildscript {
     repositories {
         google()
-        mavenCentral()
-        
+        jcenter()
+        //maven { url 'https://maven.fabric.io/public' }
+        maven {
+            url "$storageUrl/download.flutter.io"
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.0'
@@ -14,13 +17,67 @@ buildscript {
     }
 }
 
+ext{
+    compileSdkVersion = 31
+    minSdkVersion = 24
+    targetSdkVersion = 31
+    buildToolsVersion = '30.0.3'
+
+    junitVersion = '4.12'
+    runnerVersion = '0.5'
+    supportVersion = '28.0.0'
+    playServicesVersion = '11.0.2'
+    nav_version = '1.0.0'
+    dagger = '2.24'
+    callsignReleaseVersion = '5.20.0'
+    okHttpVersion = '4.9.3'
+    testingVersionCode = 24
+    prodVersionCode = 232
+}
+
 allprojects {
+    String storageUrl = System.env.FLUTTER_STORAGE_BASE_URL ?: "https://storage.googleapis.com"
     repositories {
         google()
         mavenCentral()
         
     }
+    maven {
+        url "$storageUrl/download.flutter.io"
+    }
+    maven {
+        url '/Users/megu/Documents/Code/TabletBanking-Flutter/onboarding_sdk_module/build/host/outputs/repo'
+    }
+
+    maven {
+        url "$storageUrl/download.flutter.io"
+    }
 }
+
+buildscript {
+    String storageUrl = System.env.FLUTTER_STORAGE_BASE_URL ?: "https://storage.googleapis.com"
+    repositories {
+        google()
+        jcenter()
+        //maven { url 'https://maven.fabric.io/public' }
+        maven {url 'https://developer.huawei.com/repo/'}
+        maven {
+            url "$storageUrl/download.flutter.io"
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.1'
+        classpath 'com.google.gms:google-services:4.3.14'
+        //classpath 'io.fabric.tools:gradle:1.+'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.21"
+        classpath "android.arch.navigation:navigation-safe-args-gradle-plugin:1.0.0"
+        //huawei dependency
+        classpath 'com.huawei.agconnect:agcp:1.6.1.300'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.9.2'
+    }
+
+}
+
 
 task clean(type: Delete) {
     delete rootProject.buildDir
