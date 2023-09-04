@@ -9,13 +9,27 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
+import io.flutter.embedding.android.FlutterActivity;
+
 public class MainActivity extends AppCompatActivity {
+
+    FloatingActionButton addFabButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        addFabButton = findViewById(R.id.add_fab);
+        addFabButton.setOnClickListener(view -> {
+            startActivity(
+                    FlutterActivity
+                            .withCachedEngine("my_engine_id")
+                            .build(MainActivity.this)
+            );
+        });
         showHomeItem(true);
         SampleFragment newFragment = new SampleFragment();
         newFragment.setActivity(this);
@@ -25,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     public void replaceFragment(Fragment fragment, boolean addToBackStack) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.rootLayout, fragment);
-        if(addToBackStack) {
+        if (addToBackStack) {
             transaction.addToBackStack(null);
         }
         transaction.commit();
@@ -39,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     public String getAppVersionName() {
         try {
             PackageInfo pInfo = this.getPackageManager().getPackageInfo(getPackageName(), 0);
-            return  pInfo.versionName;
+            return pInfo.versionName;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }

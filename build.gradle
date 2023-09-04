@@ -5,9 +5,6 @@ buildscript {
         google()
         jcenter()
         //maven { url 'https://maven.fabric.io/public' }
-        maven {
-            url "$storageUrl/download.flutter.io"
-        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.0'
@@ -42,16 +39,8 @@ allprojects {
         mavenCentral()
         
     }
-    maven {
-        url "$storageUrl/download.flutter.io"
-    }
-    maven {
-        url '/Users/megu/Documents/Code/TabletBanking-Flutter/onboarding_sdk_module/build/host/outputs/repo'
-    }
 
-    maven {
-        url "$storageUrl/download.flutter.io"
-    }
+
 }
 
 buildscript {

@@ -51,5 +51,15 @@
       <option name="name" value="maven2" />
       <option name="url" value="https://jitpack.io" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven3" />
+      <option name="name" value="maven3" />
+      <option name="url" value="file:$PROJECT_DIR$/../appcircle-sample-flutter/flutter_module/build/host/outputs/repo/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven4" />
+      <option name="name" value="maven4" />
+      <option name="url" value="https://storage.googleapis.com/download.flutter.io" />
+    </remote-repository>
   </component>
 </project>
