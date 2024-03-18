@@ -206,6 +206,10 @@ dependencies {
 
     //Work Manager
     implementation("androidx.work:work-runtime-ktx:2.7.0")
+    androidTestImplementation "androidx.test:core:" + rootProject.coreVersion;
+    androidTestImplementation "androidx.test.ext:junit:" + rootProject.extJUnitVersion;
+    androidTestImplementation "androidx.test:runner:" + rootProject.runnerVersion;
+    androidTestImplementation "com.google.truth:truth:" + rootProject.truthVersion
 
 
 }
