@@ -36,6 +36,15 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField "String", "APPCIRCLE_API_URL", "\"${System.env.AC_API_URL}\""
     }
+
+    productFlavors {
+        uat {
+
+        }
+        prod {
+
+        }
+    }
     buildTypes {
         release {
             debuggable false
